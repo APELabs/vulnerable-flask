@@ -1,0 +1,35 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<h2 class="card-title">Brute Force</h2>
+<p class="card-text">Brute force this page</p>
+  {% if logged_in %}
+  <div class="alert alert-success" role="alert">
+    Welcome <strong>{{ username }}!</strong>
+  </div>
+  {% else %}
+  {% if login_failed %}
+  <div class="alert alert-danger" role="alert">
+    <strong>Login failed!</strong>
+  </div>
+  {% endif %}
+  <form method="post">
+    <div class="form-group row">
+      <label for="username-input" class="col-2 col-form-label">Username</label>
+      <div class="col-10">
+	<input class="form-control" type="text" id="username-input" name="username" placeholder="Username">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="password-input" class="col-2 col-form-label">Password</label>
+      <div class="col-10">
+	<input class="form-control" type="password" id="password-input" name="password" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-10">
+	<button class="btn btn-primary" type="submit" value="Submit">Sign in</button>
+      </div>
+    </div>
+  </form>
+  {% endif %}
+{% endblock %}
